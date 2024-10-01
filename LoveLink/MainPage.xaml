@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:swipeCardView="clr-namespace:Plugin.Maui.SwipeCardView;assembly=Plugin.Maui.SwipeCardView"
+             x:Class="LoveLink.MainPage"
+             Title="LoveLink Demo">
+
+    <StackLayout>
+        <swipeCardView:SwipeCardView
+            x:Name="SwipeCardView"
+            ItemsSource="{Binding Profiles}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Padding="10"
+            SwipedCommand="{Binding SwipedCommand}"
+            DraggingCommand="{Binding DraggingCommand}"
+            Threshold="{Binding Threshold}"
+            SupportedSwipeDirections="Left, Right"
+            SupportedDraggingDirections="Left, Right"
+            LoopCards="True">
+            <swipeCardView:SwipeCardView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Frame CornerRadius="10" Padding="0" HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand">
+                            <AbsoluteLayout>
+                                <Image Source="{Binding Photo}" Aspect="Fill"
+                                       AbsoluteLayout.LayoutBounds=".5, .5, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                                </Image>
+                                <Frame x:Name="LikeFrame" BorderColor="#63DD99" BackgroundColor="Transparent"
+                                       Padding="0" CornerRadius="20" AbsoluteLayout.LayoutBounds=".1, .1, 150, 50"
+                                       AbsoluteLayout.LayoutFlags="PositionProportional" Rotation="-20" Opacity="0">
+                                    <Label x:Name="LikeText" Text="LIKE" TextColor="#63DD99"
+                                           BackgroundColor="Transparent" HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+                                           FontSize="32">
+                                    </Label>
+                                </Frame>
+                                <Frame x:Name="NopeFrame" BorderColor="#FF6A4F" BackgroundColor="Transparent"
+                                       Padding="0" CornerRadius="20" AbsoluteLayout.LayoutBounds=".9, .1, 150, 50"
+                                       AbsoluteLayout.LayoutFlags="PositionProportional" Rotation="20" Opacity="0">
+                                    <Label Text="NOPE" TextColor="#FF6A4F"
+                                           BackgroundColor="Transparent" HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+                                           FontSize="32">
+                                    </Label>
+                                </Frame>
+                                <Label FontSize="Large" FontAttributes="Bold" TextColor="White"
+                                       AbsoluteLayout.LayoutBounds=".1, .95, 150, 30"
+                                       AbsoluteLayout.LayoutFlags="PositionProportional">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Name}"></Span>
+                                            <Span Text=", "></Span>
+                                            <Span Text="{Binding Age}"></Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </swipeCardView:SwipeCardView.ItemTemplate>
+        </swipeCardView:SwipeCardView>
+        <HorizontalStackLayout HorizontalOptions="Center" Padding="10, 10, 10, 20" Spacing="30">
+            <StackLayout>
+                <Button x:Name="NopeButton" ImageSource="ic_tinder_nope.png" Clicked="OnDislikeClicked"
+                        WidthRequest="60" HeightRequest="60" CornerRadius="30" BackgroundColor="White" Scale="1">
+                </Button>
+            </StackLayout>
+            <StackLayout>
+                <Button x:Name="LikeButton" ImageSource="ic_tinder_like.png" Clicked="OnLikeClicked" WidthRequest="60"
+                        HeightRequest="60" CornerRadius="20" BackgroundColor="White" Scale="1">
+                </Button>
+            </StackLayout>
+        </HorizontalStackLayout>
+    </StackLayout>
+
+</ContentPage>
