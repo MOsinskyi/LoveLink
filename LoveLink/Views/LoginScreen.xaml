@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoveLink.Views.LoginScreen"
+             Title="Login">
+
+    <StackLayout Margin="150">
+        <Image Source="logo.png" WidthRequest="100" HeightRequest="100" VerticalOptions="StartAndExpand" Aspect="AspectFit"></Image>
+        <Label Text="Sign In"></Label>
+        <StackLayout Spacing="10">
+            <Frame BackgroundColor="#2d0c98" WidthRequest="250" Padding="5">
+                <StackLayout>
+                    <Entry Placeholder="login" TextColor="White"></Entry>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#2d0c98" WidthRequest="250" Padding="5">
+                <StackLayout>
+                    <Entry Placeholder="password" TextColor="White" IsPassword="True"></Entry>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
