@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using Firebase.Auth;
 using LoveLink.Views;
-using PropertyChangingEventArgs = Microsoft.Maui.Controls.PropertyChangingEventArgs;
-using PropertyChangingEventHandler = Microsoft.Maui.Controls.PropertyChangingEventHandler;
 
 namespace LoveLink.ViewModels;
 
@@ -12,6 +10,10 @@ public class RegistrationPageViewModel : INotifyPropertyChanged
 
     private string? _email;
     private string? _password;
+
+    private bool _buttonEnabled;
+    private bool _requiredEmailLabel = true;
+    private bool _requiredPasswordLabel = true;
 
     public Command RegisterButton { get; set; }
 
@@ -23,7 +25,7 @@ public class RegistrationPageViewModel : INotifyPropertyChanged
         set
         {
             _email = value;
-            RaisePropertyChanged("Email");
+            RaisePropertyChanged(nameof(Email));
         }
     }
 
@@ -33,7 +35,38 @@ public class RegistrationPageViewModel : INotifyPropertyChanged
         set
         {
             _password = value;
-            RaisePropertyChanged("Password");
+            RaisePropertyChanged(nameof(Password));
+            
+        }
+    }
+
+    public bool ButtonEnabled
+    {
+        get => _buttonEnabled;
+        set
+        {
+            _buttonEnabled = value;
+            RaisePropertyChanged(nameof(ButtonEnabled));
+        }
+    }
+
+    public bool RequiredEmailLabel
+    {
+        get => _requiredEmailLabel;
+        set
+        {
+            _requiredEmailLabel = value;
+            RaisePropertyChanged(nameof(RequiredEmailLabel));
+        }
+    }
+
+    public bool RequiredPasswordLabel
+    {
+        get => _requiredPasswordLabel;
+        set
+        {
+            _requiredPasswordLabel = value; 
+            RaisePropertyChanged(nameof(RequiredPasswordLabel));
         }
     }
 
@@ -53,7 +86,8 @@ public class RegistrationPageViewModel : INotifyPropertyChanged
             var token = auth.FirebaseToken;
             if (token != null)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "User Registered Successfully", "Ok");
+                await App.Current.MainPage.DisplayAlert("Done!", "User Registered Successfully", "Ok");
+                await _navigation.PushAsync(new LoginPage());
             }
 
             await _navigation.PopAsync();
@@ -61,7 +95,6 @@ public class RegistrationPageViewModel : INotifyPropertyChanged
         catch (Exception e)
         {
             await App.Current.MainPage.DisplayAlert("Alert", e.Message, "Ok");
-            throw;
         }
     }
 

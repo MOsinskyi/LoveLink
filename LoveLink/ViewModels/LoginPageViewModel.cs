@@ -7,10 +7,11 @@ namespace LoveLink.ViewModels;
 
 public class LoginPageViewModel : INotifyPropertyChanged
 {
+    private const string Key = "FreshFirebaseToken";
     private readonly INavigation _navigation;
 
-    private string _userEmail;
-    private string _userPassword;
+    private string _userEmail = null!;
+    private string _userPassword = null!;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -40,8 +41,21 @@ public class LoginPageViewModel : INotifyPropertyChanged
     public LoginPageViewModel(INavigation navigation)
     {
         _navigation = navigation;
+        SkipLoginPage();
         CreateAccountButton = new Command(CreateAccount);
         LoginButton = new Command(LoginUser);
+    }
+
+    private async void SkipLoginPage()
+    {
+        if (!Preferences.ContainsKey(Key)) return;
+        var serializedContent = Preferences.Get(Key, string.Empty);
+        var savedAuth = JsonConvert.DeserializeObject<FirebaseAuthLink>(serializedContent);
+
+        if (savedAuth != null && !savedAuth.IsExpired())
+        {
+            await _navigation.PushAsync(new MainPage());
+        }
     }
 
     private async void LoginUser(object obj)
@@ -57,7 +71,7 @@ public class LoginPageViewModel : INotifyPropertyChanged
         }
         catch (Exception e)
         {
-            await App.Current.MainPage.DisplayAlert("Alert", e.Message, "Ok");
+            await Application.Current?.MainPage?.DisplayAlert("Alert", e.Message, "Ok")!;
         }
     }
 

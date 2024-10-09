@@ -2,13 +2,18 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:LoveLink.ViewModels"
              x:Class="LoveLink.Views.RegistrationPage"
-             Title="Sign Up">
-    
+             Title="Sign Up" x:DataType="viewModels:RegistrationPageViewModel">
+
     <StackLayout Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="10">
-        <Entry Placeholder="Email" Keyboard="Email" Text="{Binding Email}"></Entry>
-        <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"></Entry>
-        <Button Text="SIGN UP" Command="{Binding RegisterButton}"></Button>
+        <Entry Placeholder="Email" TextChanged="OnEntryTextChanged" Keyboard="Email" Text="{Binding Email}"></Entry>
+        <Label Text="*Required field" TextColor="Silver" Opacity=".5" IsVisible="{Binding RequiredEmailLabel}"></Label>
+        <Entry Placeholder="Password" TextChanged="OnEntryTextChanged" IsPassword="True" Text="{Binding Password}"></Entry>
+        <Label Text="*Password should be at least 6 characters" TextColor="Silver" Opacity=".5"
+               IsVisible="{Binding RequiredPasswordLabel}">
+        </Label>
+        <Button Text="SIGN UP" Command="{Binding RegisterButton}" IsEnabled="{Binding ButtonEnabled}"></Button>
     </StackLayout>
-    
+
 </ContentPage>

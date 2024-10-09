@@ -9,7 +9,7 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
         BindingContext = new MainPageViewModel();
-        SwipeCardView.Dragging += OnDragging;
+        SwipeCardView.Dragging += OnDragging!;
     }
 
 private void OnDislikeClicked(object sender, EventArgs e)
@@ -32,11 +32,9 @@ private void OnDislikeClicked(object sender, EventArgs e)
         var view = (View)sender;
         var nopeFrame = view.FindByName<Frame>("NopeFrame");
         var likeFrame = view.FindByName<Frame>("LikeFrame");
-        var threshold = (BindingContext as MainPageViewModel).Threshold;
+        var threshold = (BindingContext as MainPageViewModel)!.Threshold;
 
         var draggedXPercent = e.DistanceDraggedX / threshold;
-
-        var draggedYPercent = e.DistanceDraggedY / threshold;
 
         switch (e.Position)
         {
@@ -49,29 +47,31 @@ private void OnDislikeClicked(object sender, EventArgs e)
                 break;
 
             case DraggingCardPosition.UnderThreshold:
-                if (e.Direction == SwipeCardDirection.Left)
+                switch (e.Direction)
                 {
-                    nopeFrame.Opacity = (-1) * draggedXPercent;
-                    NopeButton.Scale = 1 + draggedXPercent / 2;
-                    MoreButton.Scale = 1;
-                }
-                else if (e.Direction == SwipeCardDirection.Right)
-                {
-                    likeFrame.Opacity = draggedXPercent;
-                    LikeButton.Scale = 1 - draggedXPercent / 2;
-                    MoreButton.Scale = 1;
+                    case SwipeCardDirection.Left:
+                        nopeFrame.Opacity = (-1) * draggedXPercent;
+                        NopeButton.Scale = 1 + draggedXPercent / 2;
+                        MoreButton.Scale = 1;
+                        break;
+                    case SwipeCardDirection.Right:
+                        likeFrame.Opacity = draggedXPercent;
+                        LikeButton.Scale = 1 - draggedXPercent / 2;
+                        MoreButton.Scale = 1;
+                        break;
                 }
 
                 break;
 
             case DraggingCardPosition.OverThreshold:
-                if (e.Direction == SwipeCardDirection.Left)
+                switch (e.Direction)
                 {
-                    nopeFrame.Opacity = 1;
-                }
-                else if (e.Direction == SwipeCardDirection.Right)
-                {
-                    likeFrame.Opacity = 1;
+                    case SwipeCardDirection.Left:
+                        nopeFrame.Opacity = 1;
+                        break;
+                    case SwipeCardDirection.Right:
+                        likeFrame.Opacity = 1;
+                        break;
                 }
 
                 break;
@@ -95,5 +95,15 @@ private void OnDislikeClicked(object sender, EventArgs e)
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private async void OnLeftSideTapped(object? sender, TappedEventArgs e)
+    {
+        await Application.Current?.MainPage?.DisplayAlert("Debug", "LeftSideTapped", "Ok")!;
+    }
+
+    private async void OnRightSideTapped(object? sender, TappedEventArgs e)
+    {
+        await Application.Current?.MainPage?.DisplayAlert("Debug", "RightSideTapped", "Ok")!;
     }
 }
