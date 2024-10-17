@@ -1,0 +1,425 @@
+{
+  "name": "activity_register",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "ZGel1xHx6C6VtuzQaKapTz",
+    "node": "65:536",
+    "version": "6877608868",
+    "component-id": "bea92d57949ce6b40980297d3cdc6ca3ca87b3c3"
+  },
+  "default": "activity_register",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "background"
+      },
+      {
+        "type": "vector",
+        "id": "confirm_button"
+      },
+      {
+        "type": "vector",
+        "id": "password_entry"
+      },
+      {
+        "type": "vector",
+        "id": "email_entry"
+      },
+      {
+        "type": "text",
+        "id": "confirm_button_text"
+      },
+      {
+        "type": "text",
+        "id": "email_placeholder"
+      },
+      {
+        "type": "text",
+        "id": "password_placeholder"
+      },
+      {
+        "type": "text",
+        "id": "registration_text"
+      },
+      {
+        "type": "vector",
+        "id": "heart"
+      },
+      {
+        "type": "vector",
+        "id": "text_in_heart"
+      }
+    ],
+    "modes": {
+      "activity_register": {
+        "rules": [
+          {
+            "id": "top_level",
+            "border-radius": 20.0,
+            "is-structured": false,
+            "children": [
+              "background",
+              "confirm_button",
+              "password_entry",
+              "email_entry",
+              "confirm_button_text",
+              "email_placeholder",
+              "password_placeholder",
+              "registration_text",
+              "heart",
+              "text_in_heart"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "background",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 395.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 1160.0
+              }
+            },
+            "image-content": "background.png",
+            "scale": "cover"
+          },
+          {
+            "id": "confirm_button",
+            "border-radius": 20.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.2,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 30.0,
+              "offset-x": 0.0,
+              "offset-y": 30.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -30.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 714.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 328.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 49.0
+              }
+            },
+            "vector-content": "confirm_button.svg"
+          },
+          {
+            "id": "password_entry",
+            "border-radius": 20.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.2,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 30.0,
+              "offset-x": 0.0,
+              "offset-y": 30.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -29.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 642.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 328.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 49.0
+              }
+            }
+          },
+          {
+            "id": "email_entry",
+            "border-radius": 20.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.2,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 30.0,
+              "offset-x": 0.0,
+              "offset-y": 30.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -30.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 579.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 328.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 49.0
+              }
+            },
+            "vector-content": "email_entry.svg"
+          },
+          {
+            "id": "confirm_button_text",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.5
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 723.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 201.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 31.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Confirm",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "text-size": 40.0,
+            "letter-spacing": -0.5,
+            "line-height": 0.425,
+            "typeface": "Be Vietnam Pro"
+          },
+          {
+            "id": "email_placeholder",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -21.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 588.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 227.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 32.0
+              }
+            },
+            "color": {
+              "alpha": 0.4980392156862745,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Email",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "text-size": 24.0,
+            "letter-spacing": -0.5,
+            "line-height": 0.7083333587646484,
+            "typeface": "Be Vietnam Pro"
+          },
+          {
+            "id": "password_placeholder",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -3.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 646.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 229.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "color": {
+              "alpha": 0.4980392156862745,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Password",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "text-size": 24.0,
+            "letter-spacing": -0.5,
+            "line-height": 0.7083333587646484,
+            "typeface": "Be Vietnam Pro"
+          },
+          {
+            "id": "registration_text",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 54.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 466.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 279.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 101.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.007843137254901933,
+              "value": 1.0
+            },
+            "text-content": "Registration",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align-vertical": "center",
+            "text-size": 48.0,
+            "letter-spacing": -0.5,
+            "line-height": 0.3541666793823242,
+            "typeface": "Be Vietnam Pro"
+          },
+          {
+            "id": "heart",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -4.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 281.4998779296875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 211.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 197.0
+              }
+            }
+          },
+          {
+            "id": "text_in_heart",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -4.08984375
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 360.5
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 107.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 38.0
+              }
+            },
+            "vector-content": "text_in_heart.svg"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "activity_register",
+      "size": {
+        "width": 390.0,
+        "height": 848.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
