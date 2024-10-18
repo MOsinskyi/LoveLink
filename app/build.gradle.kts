@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
 
     id("com.google.gms.google-services")
+    id("com.google.relay") version "0.3.12"
 }
 
 android {
