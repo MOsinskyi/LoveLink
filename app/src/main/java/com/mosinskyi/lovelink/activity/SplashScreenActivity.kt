@@ -29,10 +29,12 @@ class SplashScreenActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (user == null)
-                startActivity(Intent(this, LoginActivity::class.java))
-            else
-                startActivity(Intent(this, MainActivity::class.java))
+//            if (user == null)
+//                startActivity(Intent(this, LoginActivity::class.java))
+//            else
+//                startActivity(Intent(this, MainActivity::class.java))
+//            finish()
+            startActivity(Intent(this, LoginActivity::class.java))
         }, 2000)
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LoveLink</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
 </resources>
