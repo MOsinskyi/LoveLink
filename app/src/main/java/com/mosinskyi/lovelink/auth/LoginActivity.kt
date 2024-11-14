@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isEmpty
 import com.google.firebase.auth.FirebaseAuth
 import com.mosinskyi.lovelink.MainActivity
 import com.mosinskyi.lovelink.R
@@ -34,22 +33,28 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 val userEmail = binding.userEmail.editText!!.text.toString()
                 val userPassword = binding.userPassword.editText!!.text.toString()
-                auth.signInWithEmailAndPassword(userEmail, userPassword)
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            // Sign in complete
-                            startActivity(Intent(this, MainActivity::class.java))
-                            finish()
-                        } else {
-                            // Sign in incomplete
-                            Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
-                        }
-                    }
+                logIn(userEmail, userPassword)
             }
         }
         binding.newUserButton.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+    }
+
+    private fun logIn(userEmail: String, userPassword: String) {
+        auth.signInWithEmailAndPassword(userEmail, userPassword)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign is complete
+                    auth.currentUser!!.reload()
+                    if (auth.currentUser!!.isEmailVerified)
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                } else {
+                    // Sign is incomplete
+                    Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
 }

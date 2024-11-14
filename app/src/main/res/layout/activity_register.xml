@@ -71,11 +71,11 @@
         android:layout_height="49sp"
         android:background="@drawable/button_bg"
         android:fontFamily="@font/be_vietnam_pro"
-        android:text="Confirm"
+        android:text="Продовжити"
 
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.mosinskyi.lovelink.R
+import com.mosinskyi.lovelink.activity.VerificationActivity
 import com.mosinskyi.lovelink.activity.WelcomeActivity
 import com.mosinskyi.lovelink.databinding.ActivityRegisterBinding
 
@@ -38,11 +39,30 @@ class RegisterActivity : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             // User created successfully
-                            startActivity(Intent(this, WelcomeActivity::class.java))
-                            finish()
+                            auth.currentUser!!.sendEmailVerification()
+                                .addOnCompleteListener(this) { task1 ->
+                                    if (task1.isSuccessful) {
+                                        startActivity(
+                                            Intent(
+                                                this,
+                                                VerificationActivity::class.java
+                                            )
+                                        )
+                                    }
+                                    else {
+                                        startActivity(
+                                            Intent(
+                                                this,
+                                                WelcomeActivity::class.java
+                                            )
+                                        )
+                                    }
+                                    finish()
+                                }
                         } else {
                             // User didn't created
-                            Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
             }
