@@ -1,4 +1,4 @@
-package com.mosinskyi.lovelink.activity
+package com.mosinskyi.lovelink.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.mosinskyi.lovelink.R
+import com.mosinskyi.lovelink.activity.register.WelcomeActivity
 import com.mosinskyi.lovelink.databinding.ActivityVerificationBinding
 
 class VerificationActivity : AppCompatActivity() {

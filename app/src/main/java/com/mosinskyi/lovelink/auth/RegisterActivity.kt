@@ -9,8 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.mosinskyi.lovelink.R
-import com.mosinskyi.lovelink.activity.VerificationActivity
-import com.mosinskyi.lovelink.activity.WelcomeActivity
+import com.mosinskyi.lovelink.activity.register.WelcomeActivity
 import com.mosinskyi.lovelink.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -30,11 +29,11 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
         binding.confirmButton.setOnClickListener {
-            if (binding.newUserEmail.editText!!.text.isEmpty()) {
-                binding.newUserEmail.error = "Please, enter your real email"
+            if (binding.userEmail.editText!!.text.isEmpty()) {
+                binding.userEmail.error = "Please, enter your real email"
             } else {
-                val userEmail = binding.newUserEmail.editText!!.text.toString()
-                val userPassword = binding.newUserPassword.editText!!.text.toString()
+                val userEmail = binding.userEmail.editText!!.text.toString()
+                val userPassword = binding.userPassword.editText!!.text.toString()
                 auth.createUserWithEmailAndPassword(userEmail, userPassword)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {

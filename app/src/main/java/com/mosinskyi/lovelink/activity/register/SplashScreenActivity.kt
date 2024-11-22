@@ -1,4 +1,4 @@
-package com.mosinskyi.lovelink.activity
+package com.mosinskyi.lovelink.activity.register
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,9 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
-import com.mosinskyi.lovelink.MainActivity
 import com.mosinskyi.lovelink.R
-import com.mosinskyi.lovelink.auth.LoginActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -34,7 +32,7 @@ class SplashScreenActivity : AppCompatActivity() {
 //            else
 //                startActivity(Intent(this, MainActivity::class.java))
 //            finish()
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, SelectAgeActivity::class.java))
         }, 2000)
     }
 }

@@ -1,120 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg2"
+    android:gravity="center|bottom"
+    android:orientation="vertical"
     tools:context=".auth.LoginActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="211sp"
+            android:layout_height="197sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/logo_bg" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:srcCompat="@drawable/logo_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/be_vietnam_pro"
-        android:text="Login"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        android:paddingVertical="10dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userEmail"
-        android:layout_width="328sp"
-        android:layout_height="49sp"
-        android:layout_marginTop="20sp"
-        android:background="@drawable/entry_bg"
-
-        app:boxBackgroundMode="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textSize="16sp"
-            android:fontFamily="@font/be_vietnam_pro"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userPassword"
-        android:layout_width="328sp"
-        android:layout_height="49sp"
-        android:layout_marginHorizontal="10dp"
-        android:background="@drawable/entry_bg"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:boxBackgroundMode="none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEmail"
-        app:layout_constraintVertical_bias="0.05">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
             android:fontFamily="@font/be_vietnam_pro"
-            android:inputType="textPassword"
-            android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Login"
+            android:textSize="48sp" />
 
-    <Button
-        android:id="@+id/confirmButton"
-        android:layout_width="328sp"
-        android:layout_height="49sp"
-        android:background="@drawable/button_bg"
-        android:fontFamily="@font/be_vietnam_pro"
-        android:text="Продовжити"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userEmail"
+            android:layout_width="328sp"
+            android:layout_height="49sp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/entry_bg"
 
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPassword"
-        app:layout_constraintVertical_bias="0.1"/>
+            app:boxBackgroundMode="none">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="211sp"
-        android:layout_height="197sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
-        app:srcCompat="@drawable/logo_bg" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/be_vietnam_pro"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/logo_label" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userPassword"
+            android:layout_width="328sp"
+            android:layout_height="49sp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/entry_bg"
 
-    <Button
-        android:id="@+id/newUserButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Новий користувач? Клікай сюди"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmButton"
-        app:layout_constraintVertical_bias="0.1" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:boxBackgroundMode="none">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/be_vietnam_pro"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="328sp"
+            android:layout_height="49sp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/be_vietnam_pro"
+            android:text="Продовжити"
+
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/newUserButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:text="Новий користувач? Клікай сюди" />
+    </LinearLayout>
+
+</LinearLayout>

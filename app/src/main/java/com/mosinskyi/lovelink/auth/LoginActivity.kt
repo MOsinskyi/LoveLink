@@ -1,5 +1,6 @@
 package com.mosinskyi.lovelink.auth
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -41,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun logIn(userEmail: String, userPassword: String) {
         auth.signInWithEmailAndPassword(userEmail, userPassword)
             .addOnCompleteListener(this) { task ->
